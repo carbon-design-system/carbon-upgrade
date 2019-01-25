@@ -9,25 +9,10 @@
 
 const { reporter } = require('../../reporter');
 const { replace } = require('../../tools/replace');
-
-function createFunctionRegex(name) {
-  const parts = [
-    // Make sure there is a space before the group, useful for things that might
-    // intersect
-    '(?<= )',
-    // Positive lookahead for the function definition
-    `(?=${name}\\(.*\\))`,
-    // Negative lookahead for checking if already migrated
-    '(?<!carbon--)',
-    // Capture the name of the function itself to change
-    `(${name})`,
-  ];
-  return new RegExp(parts.join(''), 'gm');
-}
-
-function createVariableRegex(name) {
-  return new RegExp(`\\$${name}`, 'gm');
-}
+const {
+  createFunctionRegex,
+  createVariableRegex,
+} = require('../../tools/regex');
 
 const TARGET_VERSION = '0.0.1-alpha.31';
 const changes = [
@@ -66,6 +51,11 @@ const changes = [
     filename: '_breakpoint.scss',
     from: createFunctionRegex('largest-breakpoint-name'),
     to: 'carbon--largest-breakpoint-name',
+  },
+  {
+    filename: '_breakpoint.scss',
+    from: createFunctionRegex('largest-breakpoint'),
+    to: 'carbon--largest-breakpoint',
   },
   {
     filename: '_breakpoint.scss',

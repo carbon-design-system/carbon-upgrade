@@ -9,16 +9,16 @@
 
 const { reporter } = require('../../reporter');
 
-const TARGET_VERSION = '0.0.1-alpha.30';
+const TARGET_VERSION = '0.0.1-alpha.31';
 
 module.exports = {
   version: TARGET_VERSION,
   from: [
     {
-      version: '0.0.1-alpha.x',
+      version: '0.0.1-alpha.30',
       async migrate(dependency, cwd) {
         reporter.info(
-          'Running migration from 0.0.1-alpha.27 to 0.0.0-alpha.28'
+          'Running migration from 0.0.1-alpha.30 to 0.0.0-alpha.31'
         );
       },
     },

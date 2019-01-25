@@ -9,18 +9,22 @@
 
 const { reporter } = require('../../reporter');
 const { replace } = require('../../tools/replace');
+const {
+  createFunctionRegex,
+  createVariableRegex,
+} = require('../../tools/regex');
 
 const TARGET_VERSION = '0.0.1-alpha.31';
 
 const changes = [
   {
     filename: 'motion.scss',
-    from: '$easings',
+    from: createVariableRegex('easings'),
     to: '$carbon--easings',
   },
   {
     filename: 'motion.scss',
-    from: /(?=(motion\((.?)+\)))(?<!carbon--)(motion)/g,
+    from: createFunctionRegex('motion'),
     to: 'carbon--motion',
   },
 ];
