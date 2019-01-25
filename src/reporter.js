@@ -32,7 +32,7 @@ class ConsoleReporter {
     this.log(this.format.bold(message));
   }
 
-  info(message) {
+  info(message = '') {
     this._logCategory('info', 'blue', chalk.white(message));
   }
 

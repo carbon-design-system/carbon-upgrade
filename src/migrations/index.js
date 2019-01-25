@@ -8,7 +8,13 @@
 'use strict';
 
 const colors = require('./carbon-colors');
+const layout = require('./carbon-layout');
+const motion = require('./carbon-motion');
 
-const migrations = new Map([[colors.name, colors.migrations]]);
+const migrations = new Map([
+  [colors.name, colors.migrations],
+  [layout.name, layout.migrations],
+  [motion.name, motion.migrations],
+]);
 
 module.exports = migrations;

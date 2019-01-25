@@ -7,9 +7,8 @@
 
 'use strict';
 
-const migrations = new Set([require('./0.0.1-alpha.30')]);
+class UpgradeError extends Error {}
 
 module.exports = {
-  name: '@carbon/colors',
-  migrations,
+  UpgradeError,
 };
