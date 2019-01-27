@@ -16,29 +16,24 @@ const {
 
 const TARGET_VERSION = '0.0.1-alpha.31';
 
-const changes = [
-  {
-    filename: 'motion.scss',
-    from: createVariableRegex('easings'),
-    to: '$carbon--easings',
-  },
-  {
-    filename: 'motion.scss',
-    from: createFunctionRegex('motion'),
-    to: 'carbon--motion',
-  },
-];
-
 module.exports = {
   version: TARGET_VERSION,
   from: [
     {
-      version: '0.0.1-alpha.30',
+      version: '<=0.0.1-alpha.30',
       async migrate(options) {
-        reporter.info(
-          'Running migration for @carbon/motion from 0.0.1-alpha.30 to ' +
-            '0.0.0-alpha.31'
-        );
+        const changes = [
+          {
+            filename: 'motion.scss',
+            from: createVariableRegex('easings'),
+            to: '$carbon--easings',
+          },
+          {
+            filename: 'motion.scss',
+            from: createFunctionRegex('motion'),
+            to: 'carbon--motion',
+          },
+        ];
 
         await replace('**/*.scss', changes, options);
       },

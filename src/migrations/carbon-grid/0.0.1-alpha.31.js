@@ -67,13 +67,8 @@ module.exports = {
   version: TARGET_VERSION,
   from: [
     {
-      version: '0.0.1-alpha.30',
+      version: '<=0.0.1-alpha.30',
       async migrate(options) {
-        reporter.info(
-          'Running migration for @carbon/grid from 0.0.1-alpha.30 to ' +
-            '0.0.0-alpha.31'
-        );
-
         await replace('**/*.scss', changes, options);
       },
     },

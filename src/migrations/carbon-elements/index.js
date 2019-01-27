@@ -3,12 +3,13 @@
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
- *
- * @jest-environment node
  */
 
 'use strict';
 
-test('should work', () => {
-  // ...
-});
+const migrations = new Set([require('./0.0.1-alpha.31')]);
+
+module.exports = {
+  name: '@carbon/elements',
+  migrations,
+};
