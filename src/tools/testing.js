@@ -9,6 +9,8 @@
 
 'use strict';
 
+const semver = require.requireActual('semver');
+
 function defineInlineTest(
   pathToMigrations,
   version,
@@ -42,9 +44,9 @@ function defineInlineTest(
 
     const migrations = require(pathToMigrations);
 
-    [migration] = migrations.from.filter(
-      migration => migration.version === version
-    );
+    [migration] = migrations.from.filter(migration => {
+      return semver.satisfies(version, migration.version);
+    });
     if (!migration) {
       throw new Error('Unable to find migration for version: ' + version);
     }

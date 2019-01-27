@@ -26,7 +26,7 @@ module.exports = {
           ...grid.from,
           ...layout.from,
           ...motion.from,
-        ].filter(({ version }) => version === '0.0.1-alpha.30');
+        ].filter(({ version }) => version === '<=0.0.1-alpha.30');
         await Promise.all(
           migrations.map(migration => migration.migrate(options))
         );
