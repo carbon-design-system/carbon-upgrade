@@ -51,7 +51,7 @@ workflows:
   main:
     jobs:
       - test
-      - publish
+      - publish:
           requires:
             - test
           filters:
