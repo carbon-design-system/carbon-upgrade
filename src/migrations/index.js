@@ -8,6 +8,7 @@
 'use strict';
 
 const colors = require('./carbon-colors');
+const componentsReact = require('./carbon-components-react');
 const elements = require('./carbon-elements');
 const grid = require('./carbon-grid');
 const layout = require('./carbon-layout');
@@ -16,6 +17,7 @@ const type = require('./carbon-type');
 
 const supportedPackages = new Map([
   [colors.name, colors.migrations],
+  [componentsReact.name, componentsReact.migrations],
   [elements.name, elements.migrations],
   [grid.name, grid.migrations],
   [layout.name, layout.migrations],

@@ -1,0 +1,9 @@
+{
+  "name": "carbon-components-react-fixture",
+  "private": true,
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "carbon-components-react": "6.100.0"
+  }
+}
